@@ -1,0 +1,395 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Serif';
+    --background-color: darkblue;
+    --font-color: white;
+    --button: white;
+    --button-hover: white;
+    --card-background-color: #FFFBFF;
+    --navigation-color:blue;
+}
+html{
+    scroll-behavior: smooth;
+    background-color: darkblue;
+}
+body{
+    background-color:var(--background-color);
+}
+header{
+    position: sticky;
+    top: 0;
+    margin-bottom: 20px;
+}
+.nav-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        background-color: var(--navigation-color);
+        padding: 15px 40px;
+        color: var(--button);
+
+
+    } ;
+  .nav-bar .logo a {
+        color:white;
+text-decoration: none;
+}
+
+    
+    .logo a {width: 70px;
+                color:white;
+        text-decoration: none;
+    }
+    .menu {display: flex;}
+    .menu li {padding-left: 30px;}
+    .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--color1);
+        text-align: center;
+        transition: 0.15s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+    }
+    .menu li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--button-hover);
+        transition: 0.15s ease-in-out;
+    }
+    .menu li a:hover:after {width: 100%;}
+    .open-menu , .close-menu {
+    position: absolute;
+    color: var(--color1);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+    .open-menu {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    .close-menu {
+        top: 20px;
+        right: 20px;
+    }
+    #check {display: none;}
+    
+    /* Navigation Section Responsive Styling */
+    
+    @media(max-width: 768px){
+        .menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 100;
+            background-color: var(--navigation-color);
+            transition: all 0.2s ease-in-out;
+        }
+        .menu li {margin-top: 40px;}
+        .menu li a {padding: 10px;}
+        .open-menu , .close-menu {display: block;}
+        #check:checked ~ .menu {right: 0;}
+    }
+    /* Hero Section Styling */
+
+/* Background Image styling for hero page */
+.home-page {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    background-image: url(/image/background3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--font-color);
+}
+
+.hero-section-information-designs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 300px;
+    margin-bottom: 200px;
+    margin-top: 200px;
+}
+
+.hero-section-information-designs .text-designs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.text-designs h1 {
+    font-size: 100px;
+    text-align: center;
+}
+
+.text-designs p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: lighter;
+}
+/* Button styling for hero page */
+
+.btn-vertical-bar {
+    display: flex;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+.btn-vertical-bar div {
+    font-size: 90px;
+    color: var(--button-hover);
+}
+
+.btn-vertical-bar .btn{
+    border: 3px solid var(--button-hover);
+    background-color: var(--button-hover);
+    width: 200px;
+    color: var(--background-color);
+    font: 22px;
+}
+
+/* Hero Page and CTA - Call To Action Responsiveness Styling */
+
+@media(max-width: 768px){
+    .home-page {
+        background-image: none;
+    }
+}
+
+    .hero-section-information-designs {
+        padding: 100px;
+    }
+
+    .hero-section-information-designs .text-designs{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        justify-content: center;
+        align-items: center;
+        font-weight: lighter;
+    }
+
+    .text-designs h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .text-designs p {
+        text-align: center;
+        font-size: 16px;
+        font-weight: lighter;
+    }
+
+    .btn-vertical-bar {
+        display: flex;
+        gap: 20px;
+        justify-content: space-around;
+    }
+
+    .btn-vertical-bar div {
+        font-size: 45px;
+        color: var(--button-hover);
+    }
+
+    .btn-vertical-bar .btn{
+        border: 1px solid var(--button-hover);
+        background-color: var(--button-hover);
+        width: 170px;
+        color: var(--background-color);
+        font: 16px;
+}
+/* Product Section Styling */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 100px;
+    background-color: var(--background-color);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--background-color);
+    padding: 25px;
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card .ww-name {
+    text-align: center;
+    font-size: 32px;
+}
+
+.card .ww-description {
+    text-align: center;
+}
+
+.card .ww-btn {
+    background-color: darkblue;
+    color: var(--font-color);
+}
+
+/* Product Section Responsiveness Styling */
+
+@media(max-width: 768px){
+    .products {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/* Story section styling */
+
+.story {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-image-info {
+    display: flex;
+}
+
+.story-image-info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--background-color);
+    background-image: url(/images/young-afro-american-man-shirt-look-hand-watch-isolated-gray-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--font-color);
+    padding: 200px;
+}
+
+.info-text {
+    text-align: center;
+}
+
+.sep div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    background-color: var(--font-color);
+    gap: 40px;
+}
+
+.sep p {
+    text-align: center;
+}
+
+
+/* Story Section Responsiveness Styling */
+
+@media(max-width: 768px){
+    .story-image-info div {
+        background-image: none;
+        padding: 50px;
+    }
+}
+/* Footer Styling Section */
+
+.footer {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.footer .footer-header h3 {
+    color: var(--button-hover);
+}
+
+.footer .footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 200px;
+}
+
+.footer-links div ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer-links div label {
+    color: var(--button-hover);
+}
+
+.footer-links div ul li a {
+    text-decoration: none;
+    color: var(--button-hover);
+}
+
+.social-media ul li a{
+    display: flex;
+    gap: 15px;
+}
+
+.back-to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--button-hover);
+    height: 35px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-to-top a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--button-hover);
+    font-size: 19px;
+}
+
+/* Footer Section Responsiveness Styling */
+
+@media(max-width: 768px){
+    .footer .footer-links {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+}
+
+
